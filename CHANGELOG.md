@@ -1,0 +1,2 @@
+-   Added delete method which deltes the given tag
+-   Added necessary test cases for the delete method
