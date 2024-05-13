@@ -4,6 +4,8 @@ This package is forked from node-tlv with some additional features including:
 
     1. Update a given tag with given value
     2. Add a TLV under a given tag
+    3. Delete a TLV under a given tag
+    4. Supports parsing multiple routes (parseMultipleRoots)
 
 You can find the npm package here: https://www.npmjs.com/package/node-tlv-upgraded
 
@@ -68,6 +70,19 @@ const tlv = TLV.delete(
 	);
     console.log("DELETE: ", tlv);
 	assert(tlv === "6F348407A0000000041010A529500A4D6173746572436172649F38069F5C089F4005BF0C119F5E095413339000001513019F4D020B0A");
+},
+```
+
+## Example for parsing a tlv string with multiple roots
+
+```javascript
+const TLV = require("node-tlv");
+const assert = require("assert");
+
+const tlv = TLV.parseMultipleRoots(
+    "6F1A840E315041592E5359532E4444463031A5088801025F2D02656E6F1A840E315041592E5359532E4444463031A5088801025F2D02656E",
+	);
+	assert(tlv.length === 2);
 },
 ```
 
